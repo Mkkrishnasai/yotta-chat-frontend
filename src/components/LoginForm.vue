@@ -28,7 +28,7 @@
     </section>
 </template>
 
-<script lang="ts">
+<script>
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { userRoutes } from '@/router/routes';
@@ -67,7 +67,7 @@ export default {
                 console.log(error);
                 Swal.fire({
                         title: 'Error !',
-                        text: error.message,
+                        text: error?.message,
                         icon: 'error',
                         confirmButtonText: 'OK',
                     });
@@ -76,10 +76,10 @@ export default {
         validateRequest(){
             this.errors = [];
             if(!this.username){
-                this.errors.push('username');
+                this.errors?.push('username');
             }
             if(!this.password){
-                this.errors.push('password');
+                this.errors?.push('password');
             }
         }
     },

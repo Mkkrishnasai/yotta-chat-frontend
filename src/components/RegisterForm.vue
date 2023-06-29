@@ -39,7 +39,7 @@
 </template>
 
 
-<script lang="ts">
+<script>
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import {userRoutes} from '../router/routes'
@@ -102,7 +102,7 @@ export default {
             }
         }
     },
-    validateRequest(): void{
+    validateRequest(){
         this.errors = [];
         if(!this.username){
             this.errors.push('username');

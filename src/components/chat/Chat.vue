@@ -96,12 +96,11 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import { useAuthStore } from '@/stores/auth';
 import axios from 'axios';
 import { userRoutes } from '../../router/routes';
 import io from 'socket.io-client';
-import Notification from './Notification.vue';
 import Swal from 'sweetalert2';
 import userImage from '@/assets/user.png';
 
@@ -132,7 +131,7 @@ export default {
         this.socket.emit('login_user');
         await this.getUserDetails();
         await this.getChat();
-        this.socket.on('message', async (data: any) => {
+        this.socket.on('message', async (data) => {
             if(data.from  == this.user._id){
                 this.chats.push(data)
             }else{
@@ -169,7 +168,7 @@ export default {
                 });
             }
         });
-        this.socket.on('edited_message', (data: any) => {
+        this.socket.on('edited_message', (data) => {
             this.chats = this.chats.map(d => {
                 if(d.mid == data.mid){
                     d.message = data.message
@@ -177,7 +176,7 @@ export default {
                 return d;
             });
         });
-        this.socket.on('deleted_message', (data: any) => {
+        this.socket.on('deleted_message', (data) => {
             this.chats = this.chats.filter(d => d.mid != data.mid);
         });
         this.scrollToBottom();

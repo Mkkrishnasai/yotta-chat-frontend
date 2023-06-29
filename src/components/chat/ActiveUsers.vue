@@ -59,7 +59,7 @@
     </main>
 </template>
 
-<script lang="ts">
+<script>
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import {userRoutes} from '../../router/routes';
@@ -88,7 +88,7 @@ export default {
   created(){
     this.getActiveUsers();
     this.socket.emit('login_user');
-    this.socket.on('active_users', (data: any) => {
+    this.socket.on('active_users', (data) => {
       if(this.users.filter(u => u._id == data._id).length == 0){
         this.users.push(data);
       }
