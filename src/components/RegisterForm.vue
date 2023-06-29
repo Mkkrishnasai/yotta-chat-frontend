@@ -87,7 +87,7 @@ export default {
                         icon: 'success',
                         confirmButtonText: 'OK',
                     });
-                    this.$router.push({name: 'login'});
+                    this.$router.push({name: 'Login'});
                 }else{
                     throw new Error(response.data.message);
                 }
