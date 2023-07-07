@@ -32,6 +32,9 @@
             />
           </div>
           <div class="text-sm font-semibold mt-2">{{ store.username }}</div>
+          <button @click="logout" type="button" class="inline-flex items-center justify-center rounded-lg border h-10 p-5 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+              Logout
+          </button>
         </div>
         <div class="flex flex-col mt-8 pl-40 pr-40">
           <div class="flex flex-row items-center justify-between text-xs">
@@ -100,6 +103,10 @@ export default {
     }
   },
   methods : {
+    logout(){
+          this.store.logout();
+          location.reload();
+      },
     async getActiveUsers(){
         try {
                 const response = await axios.get(this.baseUrl + userRoutes.getActiveUsers);

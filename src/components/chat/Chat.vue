@@ -47,7 +47,7 @@
                                 </button>
                             </div>
                             <div v-if="(!m.from || m.from != this.user._id) && isEdit == m.mid" class="flex items-end p-2">
-                                <button @click="updateChat" class="flex items-center justify-center bg-gray-300 h-6 w-6 rounded-full mr-2">
+                                <button @click="updateChat" class="flex items-center justify-center bg-green-600 text-white h-6 p-4 rounded-full mr-2">
                                     save message
                                 </button>
                             </div>
